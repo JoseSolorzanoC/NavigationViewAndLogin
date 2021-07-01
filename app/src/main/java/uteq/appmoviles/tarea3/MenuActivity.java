@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -38,7 +39,7 @@ public class MenuActivity extends AppCompatActivity {
     private ActivityMenuBinding binding;
     private TextView txtEmailViewDrawer;
     private DatabaseReference mDatabase;
-    private CircleImageView circleImageView;
+    private ImageView imageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,16 +65,20 @@ public class MenuActivity extends AppCompatActivity {
         setup((FirebaseUser) bundle.get("user"));
     }
 
+    private void printImg(String url){
+        Glide.with(this).load(url).circleCrop().into(imageView);
+    }
+
     private void setup(FirebaseUser user){
         final String[] url_img = new String[1];
         txtEmailViewDrawer = navigationView.getHeaderView(0).findViewById(R.id.txtEmailDrawer);
         txtEmailViewDrawer.setText(user.getEmail().toString());
-        circleImageView = navigationView.getHeaderView(0).findViewById(R.id.circleImageView);
+        imageView = navigationView.getHeaderView(0).findViewById(R.id.imageView);
         mDatabase.child(user.getUid()).child("img_url").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
-                System.out.println(snapshot.getValue(String.class));
-                Glide.with(MenuActivity.this).load(url_img[0]).circleCrop().into(circleImageView);
+                String url = snapshot.getValue(String.class);
+                printImg(url);
             }
 
             @Override
