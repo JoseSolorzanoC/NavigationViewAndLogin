@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "56506558405",
+    "project_id": "navigationviewappmoviles",
+    "storage_bucket": "navigationviewappmoviles.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:56506558405:android:12d78255617bc42b518dac",
+        "android_client_info": {
+          "package_name": "uteq.appmoviles.tarea3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "56506558405-3odn8rre034rnr278u3dc5toqen1d4ml.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDl-SFGi3saA8Jpe_dsaMDyeekqgTDSjMs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "56506558405-3odn8rre034rnr278u3dc5toqen1d4ml.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
